@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tyty-04/D2Loadout#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "knex": "^2.3.0",
