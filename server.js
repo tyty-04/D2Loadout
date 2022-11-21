@@ -164,7 +164,8 @@ app.post("/randomizer", (req, res) => {
 });
 
 async function randomize() {
-  await importWeapons;
+  await importLegendaryWeapons;
+  await importExoticWeapons;
   await importArmor;
   let kinetic;
   let energy;
@@ -348,24 +349,42 @@ function processWeapons(weapon) {
   weapons.push(weapon);
 }
 
-let importWeapons = new Promise(function (resolve, reject) {
+let importLegendaryWeapons = new Promise(function (resolve, reject) {
   destiny("DestinyInventoryItemDefinition")
     .jsonExtract("json", "$.displayProperties.name", "name")
     .jsonExtract("json", "$.displayProperties.icon", "image")
     .jsonExtract("json", "$.equippingBlock.ammoType", "ammo")
     .jsonExtract("json", "$.inventory.tierTypeName", "tier")
     .jsonExtract("json", "$.equippingBlock.equipmentSlotTypeHash", "slot")
-    .whereLike("json", "%equipmentSlotTypeHash%")
-    .whereLike("json", "%item_type.weapon%")
+    .whereLike("json", "%collectibleHash%")
+    .andWhereLike("json", "%equipmentSlotTypeHash%")
+    .andWhereLike("json", "%item_type.weapon%")
     .andWhereLike("json", "%Legendary%")
-    .orWhereLike("json", "%item_type.weapon%")
+    .then((DestinyInventoryItemDefinition) =>
+      DestinyInventoryItemDefinition.forEach((element) => {
+        processWeapons(element);
+      })
+    );
+  resolve(console.log("Legendary weapons imported"));
+});
+
+let importExoticWeapons = new Promise(function (resolve, reject) {
+  destiny("DestinyInventoryItemDefinition")
+    .jsonExtract("json", "$.displayProperties.name", "name")
+    .jsonExtract("json", "$.displayProperties.icon", "image")
+    .jsonExtract("json", "$.equippingBlock.ammoType", "ammo")
+    .jsonExtract("json", "$.inventory.tierTypeName", "tier")
+    .jsonExtract("json", "$.equippingBlock.equipmentSlotTypeHash", "slot")
+    .whereLike("json", "%collectibleHash%")
+    .andWhereLike("json", "%equipmentSlotTypeHash%")
+    .andWhereLike("json", "%item_type.weapon%")
     .andWhereLike("json", "%Exotic%")
     .then((DestinyInventoryItemDefinition) =>
       DestinyInventoryItemDefinition.forEach((element) => {
         processWeapons(element);
       })
     );
-  resolve(console.log("Weapons imported"));
+  resolve(console.log("Exotic weapons imported"));
 });
 
 function processArmor(armor) {
