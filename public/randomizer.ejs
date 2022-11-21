@@ -19,34 +19,73 @@
   <body>
     <div id="box">
       <div id="kinetic">
+        <% if(randomized.kineticImg == ""){%>
         <img
           id="kineticImg"
           src="https://www.bungie.net/common/destiny2_content/icons/962055a3f8c73eff98f140f6fac79392.png"
-          alt="Kinetic"
+          alt="kinetic"
           width="96"
           height="96"
         />
+        <% } else { %>
+        <img
+          id="kineticImg"
+          src="<%= randomized.kineticImg %>"
+          alt="kinetic"
+          width="96"
+          height="96"
+        />
+        <% } if(randomized.kineticText == ""){%>
         <p id="kineticText">Kinetic</p>
+        <% } else { %>
+        <p id="kineticText">Kinetic - <%= randomized.kineticText %></p>
+        <% } %>
       </div>
       <div id="energy">
+        <% if(randomized.energyImg == ""){%>
         <img
           id="energyImg"
           src="https://www.bungie.net/common/destiny2_content/icons/962055a3f8c73eff98f140f6fac79392.png"
-          alt="Energy"
+          alt="energy"
           width="96"
           height="96"
         />
+        <% } else { %>
+        <img
+          id="energyImg"
+          src="<%= randomized.energyImg %>"
+          alt="energy"
+          width="96"
+          height="96"
+        />
+        <% } if(randomized.energyText == ""){%>
         <p id="energyText">Energy</p>
+        <% } else { %>
+        <p id="energyText">Energy - <%= randomized.energyText %></p>
+        <% } %>
       </div>
       <div id="heavy">
+        <% if(randomized.heavyImg == ""){%>
         <img
           id="heavyImg"
           src="https://www.bungie.net/common/destiny2_content/icons/962055a3f8c73eff98f140f6fac79392.png"
-          alt="Heavy"
+          alt="heavy"
           width="96"
           height="96"
         />
+        <% } else { %>
+        <img
+          id="heavyImg"
+          src="<%= randomized.heavyImg %>"
+          alt="heavy"
+          width="96"
+          height="96"
+        />
+        <% } if(randomized.heavyText == ""){%>
         <p id="heavyText">Heavy</p>
+        <% } else { %>
+        <p id="heavyText">Heavy - <%= randomized.heavyText %></p>
+        <% } %>
       </div>
       <div id="img">
         <img
@@ -58,29 +97,56 @@
         />
       </div>
       <div id="armor">
+        <% if(randomized.armorImg == ""){%>
         <img
           id="armorImg"
           src="https://www.bungie.net/common/destiny2_content/icons/ee21b5bc72f9e48366c9addff163a187.png"
-          alt="Armor"
+          alt="armor"
           width="96"
           height="96"
         />
+        <% } else { %>
+        <img
+          id="armorImg"
+          src="<%= randomized.armorImg %>"
+          alt="armor"
+          width="96"
+          height="96"
+        />
+        <% } if(randomized.armorText == ""){%>
         <p id="armorText">Armor</p>
+        <% } else { %>
+        <p id="armorText">Armor - <%= randomized.armorText %></p>
+        <% } %>
       </div>
       <div id="button">
-        <button id="randomize" onclick="randomizer()">RANDOMIZE</button>
+        <form action="/randomizer" method="post">
+          <button id="randomize">RANDOMIZE</button>
+        </form>
       </div>
       <div id="class">
+        <% if(randomized.classImg == ""){%>
         <img
           id="classImg"
           src="https://titles.trackercdn.com/destiny/common/destiny2_content/icons/DestinyActivityModeDefinition_ca750af7ed2f0ec3c8e2f019c85f7bab.png"
-          alt="Class"
+          alt="class"
           width="96"
           height="96"
         />
+        <% } else { %>
+        <img
+          id="classImg"
+          src="<%= randomized.classImg %>"
+          alt="class"
+          width="96"
+          height="96"
+        />
+        <% } if(randomized.classText == ""){%>
         <p id="classText">Class</p>
+        <% } else { %>
+        <p id="classText">Class - <%= randomized.classText %></p>
+        <% } %>
       </div>
     </div>
-    <script src="script.js" type="module"></script>
   </body>
 </html>
