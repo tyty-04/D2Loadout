@@ -1,11 +1,12 @@
 @import url(//db.onlinewebfonts.com/c/3c6b0199ae7b57966132e83c939d77e2?family=Futura+PT+Medium);
-@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro");
+@import url(https://fonts.cdnfonts.com/css/neue-haas-grotesk-text-pro);
 
 body {
   margin: 0;
+  color: white;
   background-color: #cccccc;
   height: 100vh;
-  background-image: linear-gradient(rgb(20, 20, 20), lightgray);
+  background-image: radial-gradient(circle at 50% 40%, #888279, #21201f);
   text-align: center;
 }
 #box {
@@ -19,12 +20,19 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   row-gap: 30px;
-  column-gap: 300px;
+  column-gap: 250px;
   font-family: "Neue Haas Grotesk Text Pro", sans-serif;
+}
+#emblem {
+  width: 100vw;
+  height: 10vh;
 }
 #box > div {
   width: 150px;
   height: 175px;
+}
+#box > .item > img {
+  border: 3px solid white;
 }
 #img {
   grid-row: 2 / span 2;
@@ -92,4 +100,44 @@ body {
 #randomize:hover {
   cursor: pointer;
   background-color: rgb(20, 20, 20);
+}
+#home {
+  position: absolute;
+  top: 15px;
+  left: 150px;
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Futura PT Medium";
+  src: url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.eot");
+  src: url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.svg#Futura PT Medium")
+      format("svg");
+}
+h1 {
+  position: relative;
+  bottom: 80px;
+  font-family: "Futura PT Medium";
+  src: url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.eot");
+  src: url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/3c6b0199ae7b57966132e83c939d77e2.svg#Futura PT Medium")
+      format("svg");
+}
+a {
+  text-decoration: none;
 }

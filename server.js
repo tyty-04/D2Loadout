@@ -155,6 +155,18 @@ let randomized = {
 };
 
 app.get("/randomizer", (req, res) => {
+  randomized = {
+    kineticImg: "",
+    kineticText: "",
+    energyImg: "",
+    energyText: "",
+    heavyImg: "",
+    heavyText: "",
+    armorImg: "",
+    armorText: "",
+    classImg: "",
+    classText: "",
+  };
   res.render("randomizer", { randomized });
 });
 
@@ -164,9 +176,6 @@ app.post("/randomizer", (req, res) => {
 });
 
 async function randomize() {
-  await importLegendaryWeapons;
-  await importExoticWeapons;
-  await importArmor;
   let kinetic;
   let energy;
   let heavy;
@@ -182,7 +191,6 @@ async function randomize() {
     return element.slot == 2;
   });
   let firstSlot = Math.floor(Math.random() * 3);
-  console.log(firstSlot);
   if (firstSlot == 0) {
     kinetic = kineticOptions[Math.floor(Math.random() * kineticOptions.length)];
     randomized.kineticImg = kinetic.image;
@@ -334,7 +342,6 @@ async function randomize() {
   }
   randomized.classImg = classSuper.classImage;
   randomized.classText = classSuper.className;
-  console.log(kinetic.name);
 }
 
 function processWeapons(weapon) {
@@ -397,6 +404,7 @@ let importArmor = new Promise(function (resolve, reject) {
     .jsonExtract("json", "$.displayProperties.name", "name")
     .jsonExtract("json", "$.displayProperties.icon", "image")
     .jsonExtract("json", "$.classType", "class")
+    .whereLike("json", "%collectibleHash%")
     .whereLike("json", "%item_type.armor%")
     .andWhereLike("json", "%Exotic%")
     .then((DestinyInventoryItemDefinition) =>
