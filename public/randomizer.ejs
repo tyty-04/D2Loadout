@@ -17,8 +17,15 @@
     <title>Loadout Randomizer</title>
   </head>
   <body>
+    <img
+      src="https://www.bungie.net/common/destiny2_content/icons/65815d2a015258af69b5bde760f8b830.jpg"
+      alt="Banner"
+      id="emblem"
+    />
+    <h1>DESTINY 2 LOADOUT RANDOMIZER</h1>
+    <a href="/" id="home">HOME</a>
     <div id="box">
-      <div id="kinetic">
+      <div id="kinetic" class="item">
         <% if(randomized.kineticImg == ""){%>
         <img
           id="kineticImg"
@@ -41,7 +48,7 @@
         <p id="kineticText">Kinetic - <%= randomized.kineticText %></p>
         <% } %>
       </div>
-      <div id="energy">
+      <div id="energy" class="item">
         <% if(randomized.energyImg == ""){%>
         <img
           id="energyImg"
@@ -64,7 +71,7 @@
         <p id="energyText">Energy - <%= randomized.energyText %></p>
         <% } %>
       </div>
-      <div id="heavy">
+      <div id="heavy" class="item">
         <% if(randomized.heavyImg == ""){%>
         <img
           id="heavyImg"
@@ -96,7 +103,7 @@
           height="216"
         />
       </div>
-      <div id="armor">
+      <div id="armor" class="item">
         <% if(randomized.armorImg == ""){%>
         <img
           id="armorImg"
@@ -124,7 +131,7 @@
           <button id="randomize">RANDOMIZE</button>
         </form>
       </div>
-      <div id="class">
+      <div id="class" class="item">
         <% if(randomized.classImg == ""){%>
         <img
           id="classImg"
